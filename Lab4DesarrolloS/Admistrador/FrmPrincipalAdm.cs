@@ -62,5 +62,16 @@ namespace Lab4DesarrolloS.Admistrador
             frmConsultar.WindowState = FormWindowState.Maximized;
             frmConsultar.Show();
         }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmEliminar frm = new frmEliminar();
+            frm.Show();
+        }
     }
 }
