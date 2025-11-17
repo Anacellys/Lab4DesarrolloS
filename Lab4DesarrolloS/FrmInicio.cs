@@ -29,7 +29,7 @@ namespace Lab4DesarrolloS
         private void btnIngreso_Click(object sender, EventArgs e)
         {
             string nombre = txtNombre.Text.Trim();
-            string contrasena = txtContraseña.Text.Trim();
+            string contrasena = txtContra.Text.Trim();
 
             if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(contrasena))
             {
@@ -84,6 +84,11 @@ namespace Lab4DesarrolloS
         }
 
         private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtContraseña_TextChanged(object sender, EventArgs e)
         {
 
         }
