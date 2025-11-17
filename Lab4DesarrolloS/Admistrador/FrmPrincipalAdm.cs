@@ -20,6 +20,7 @@ namespace Lab4DesarrolloS.Admistrador
         private void stadoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmActualizar frmActualizar = new frmActualizar();
+            frmActualizar.Show();
         }
 
         private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -61,6 +62,17 @@ namespace Lab4DesarrolloS.Admistrador
             frmConsultar.MdiParent = this;
             frmConsultar.WindowState = FormWindowState.Maximized;
             frmConsultar.Show();
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmEliminar frm = new frmEliminar();
+            frm.Show();
         }
     }
 }
