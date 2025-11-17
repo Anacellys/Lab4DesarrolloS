@@ -167,6 +167,9 @@
     <Compile Include="Operaciones.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Admistrador\frmActualizar.resx">
+      <DependentUpon>frmActualizar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admistrador\frmAgregar.resx">
       <DependentUpon>frmAgregar.cs</DependentUpon>
     </EmbeddedResource>

@@ -80,6 +80,7 @@
             this.lblNp.Size = new System.Drawing.Size(68, 20);
             this.lblNp.TabIndex = 3;
             this.lblNp.Text = "Nombre";
+            this.lblNp.Click += new System.EventHandler(this.lblNp_Click);
             // 
             // label2
             // 
@@ -90,6 +91,7 @@
             this.label2.Size = new System.Drawing.Size(63, 20);
             this.label2.TabIndex = 4;
             this.label2.Text = "Imagen";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -111,6 +113,7 @@
             this.label4.Size = new System.Drawing.Size(57, 20);
             this.label4.TabIndex = 6;
             this.label4.Text = "Precio";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
@@ -120,6 +123,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(0, 20);
             this.label5.TabIndex = 7;
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // picMedi
             // 
@@ -135,6 +139,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(100, 22);
             this.txtName.TabIndex = 9;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // txtCant
             // 
@@ -142,6 +147,7 @@
             this.txtCant.Name = "txtCant";
             this.txtCant.Size = new System.Drawing.Size(100, 22);
             this.txtCant.TabIndex = 10;
+            this.txtCant.TextChanged += new System.EventHandler(this.txtCant_TextChanged);
             // 
             // txtP
             // 
@@ -149,6 +155,7 @@
             this.txtP.Name = "txtP";
             this.txtP.Size = new System.Drawing.Size(100, 22);
             this.txtP.TabIndex = 11;
+            this.txtP.TextChanged += new System.EventHandler(this.txtP_TextChanged);
             // 
             // btnMuestra
             // 
@@ -189,6 +196,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(841, 575);
             this.panel1.TabIndex = 15;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // frmModificar
             // 
