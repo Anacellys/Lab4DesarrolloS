@@ -32,36 +32,50 @@ namespace Lab4DesarrolloS.Admistrador
 
         private void FrmConsultar_Load(object sender, EventArgs e)
         {
-            DataTable dt = new DataTable();
-
-            using (ConexionBD conexion = new ConexionBD())
-            {
-                try
-                {
-                    conexion.conectar();
-
-                    string query = "SELECT id, nombre, imagen, cantidad, precio FROM medicamentos;";
-
-                    using (NpgsqlCommand cmd = new NpgsqlCommand(query, conexion.getMiConexion()))
-                    {
-                        NpgsqlDataAdapter adaptador = new NpgsqlDataAdapter(cmd);
-                        adaptador.Fill(dt);
-                    }
-
-                    dgvProduct.DataSource = dt;
-                    dgvProduct.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                    dgvProduct.AutoResizeColumns();
-
-                    Size preferredSize = dgvProduct.GetPreferredSize(new Size(0, 0));
-                    dgvProduct.Width = preferredSize.Width;
-                    dgvProduct.Left = this.ClientSize.Width / 2 - dgvProduct.Width / 2;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al cargar medicamentos: " + ex.Message);
-                }
-            }
+           
         }
 
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            DataTable tabla = new DataTable();
+
+            try
+            {
+                using (ConexionBD bd = new ConexionBD())
+                {
+                    bd.conectar();
+
+                    string sql = @"
+                SELECT 
+                    u.nombre_usuario AS cliente,
+                    m.nombre AS medicamento,
+                    dp.cantidad,
+                    dp.subtotal,
+                    p.total AS total_pedido,
+                    p.fecha
+                FROM pedidos p
+                JOIN usuarios u ON u.id = p.id_cliente
+                JOIN detalle_pedido dp ON dp.id_pedido = p.id
+                JOIN medicamentos m ON m.id = dp.id_medicamento
+                ORDER BY p.fecha DESC;
+            ";
+
+                    using (NpgsqlCommand cmd = new NpgsqlCommand(sql, bd.getMiConexion()))
+                    using (NpgsqlDataAdapter da = new NpgsqlDataAdapter(cmd))
+                    {
+                        da.Fill(tabla);
+                    }
+
+                    bd.cerrarConexion();
+                }
+
+                dgvProduct.DataSource = tabla;
+                dgvProduct.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al consultar pedidos: " + ex.Message);
+            }
+        }
     }
 }
