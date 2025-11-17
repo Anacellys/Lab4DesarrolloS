@@ -32,8 +32,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtContraseña = new System.Windows.Forms.TextBox();
             this.btnIngreso = new System.Windows.Forms.Button();
+            this.txtContra = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -75,30 +75,34 @@
             this.txtNombre.TabIndex = 3;
             this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             // 
-            // txtContraseña
-            // 
-            this.txtContraseña.Location = new System.Drawing.Point(158, 214);
-            this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.Size = new System.Drawing.Size(162, 20);
-            this.txtContraseña.TabIndex = 4;
-            // 
             // btnIngreso
             // 
-            this.btnIngreso.Location = new System.Drawing.Point(177, 250);
+            this.btnIngreso.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIngreso.Location = new System.Drawing.Point(177, 243);
             this.btnIngreso.Name = "btnIngreso";
-            this.btnIngreso.Size = new System.Drawing.Size(75, 23);
+            this.btnIngreso.Size = new System.Drawing.Size(124, 37);
             this.btnIngreso.TabIndex = 5;
             this.btnIngreso.Text = "Ingresar";
             this.btnIngreso.UseVisualStyleBackColor = true;
             this.btnIngreso.Click += new System.EventHandler(this.btnIngreso_Click);
             // 
+            // txtContra
+            // 
+            this.txtContra.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.txtContra.Location = new System.Drawing.Point(177, 205);
+            this.txtContra.Name = "txtContra";
+            this.txtContra.Size = new System.Drawing.Size(100, 20);
+            this.txtContra.TabIndex = 6;
+            this.txtContra.Visible = false;
+            // 
             // FrmInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(472, 308);
+            this.Controls.Add(this.txtContra);
             this.Controls.Add(this.btnIngreso);
-            this.Controls.Add(this.txtContraseña);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -117,8 +121,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.TextBox txtContraseña;
         private System.Windows.Forms.Button btnIngreso;
+        private System.Windows.Forms.MaskedTextBox txtContra;
     }
 }
 
