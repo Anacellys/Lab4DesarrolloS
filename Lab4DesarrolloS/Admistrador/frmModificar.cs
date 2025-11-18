@@ -138,5 +138,45 @@ namespace Lab4DesarrolloS.Admistrador
             picMedi.Image = Image.FromFile(op.FileName);
             }
         }
+
+        private void txtP_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCant_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblNp_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

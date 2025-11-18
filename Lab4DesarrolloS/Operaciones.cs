@@ -14,7 +14,31 @@ namespace Lab4DesarrolloS
     internal class Operaciones
     {
         private ConexionBD bd = new ConexionBD();
+        public bool agregar(string name, byte[] foto,float cant, float pre)
+        {
+            try
+            {
+                bd.conectar();
+                if (bd.getMiConexion().State == ConnectionState.Open)
+                {
+                    string sql = "Insert into medicamentos (nombre,imagen,cantidad,precio) values (@nombre,@imagen,@cantidad,@precio)";
+                    using (NpgsqlCommand cmd = new NpgsqlCommand(sql, bd.getMiConexion()))
+                    {
+                        cmd.Parameters.AddWithValue("@nombre", name);
+                        cmd.Parameters.AddWithValue("@imagen", foto);
+                        cmd.Parameters.AddWithValue("@cantidad", cant);
+                        cmd.Parameters.AddWithValue("@precio", pre);
+                        return cmd.ExecuteNonQuery() > 0;
+                    }
+                }
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Error al actualizar: " + ex.Message);
+            }
+            bd.cerrarConexion();
 
+            return false;
+        }
         public bool modificarMed(int id, string name, byte[] foto, float cant, float pre)
         {
             try
@@ -83,8 +107,8 @@ namespace Lab4DesarrolloS
 
                     if (resultado != DBNull.Value && resultado != null)
                     {
-                        string hex = resultado.ToString();      // 🔥 viene como HEX string desde PostgreSQL
-                        imagen = HexStringToBytes(hex);         // 🔥 convertir a byte[]
+                        string hex = resultado.ToString();     
+                        imagen = HexStringToBytes(hex);         
                     }
                 }
             }
@@ -101,7 +125,6 @@ namespace Lab4DesarrolloS
         }
         private byte[] HexStringToBytes(string hex)
         {
-            // PostgreSQL bytea -> "\xFFD8FFE0...."
             if (hex.StartsWith("\\x"))
                 hex = hex.Substring(2);
 
@@ -115,5 +138,30 @@ namespace Lab4DesarrolloS
 
             return bytes;
         }
+        public bool ActualizarCant (int id,float cant)
+        {
+            try
+            {
+                bd.conectar();
+                if (bd.getMiConexion().State == ConnectionState.Open)
+                {
+                    string sql = "Update medicamentos set cantidad=@cantidad WHERE id = @codigo";
+                    using (NpgsqlCommand cmd = new NpgsqlCommand(sql, bd.getMiConexion()))
+                    {
+                        cmd.Parameters.AddWithValue("@codigo", id);
+                        cmd.Parameters.AddWithValue("@cantidad", cant);
+                        return cmd.ExecuteNonQuery() > 0;
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar: " + ex.Message);
+            }
+            bd.cerrarConexion();
+            return false;
+        }
     }
-}
+  }
+ 
