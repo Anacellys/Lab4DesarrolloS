@@ -188,6 +188,9 @@
     <EmbeddedResource Include="Admistrador\frmVer.resx">
       <DependentUpon>frmVer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Clientes\frmComprar.resx">
+      <DependentUpon>frmComprar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Clientes\FrmPrinciplaCln.resx">
       <DependentUpon>FrmPrinciplaCln.cs</DependentUpon>
     </EmbeddedResource>
@@ -205,6 +208,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -222,6 +226,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Config\conexionBD.xml" />
+    <None Include="Resources\Farmacia Logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
